@@ -1,5 +1,7 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                      import ddf.minim.*;
+                                                                                                                                                                                                                                                                                                                                                                                                                         import ddf.minim.*;
 import ddf.minim.analysis.*;
+
+int MAX_SQUARES = 200;
 
 int colorwheel = 0; //Determines background and creates dynamic color changes 
 boolean incColor = true; //Determines if the colorwheel is increasing or decreasing
@@ -87,7 +89,7 @@ void draw()
   PVector circ = new PVector(x, y);
   history.add(circ);
 
-  if (history.size() > 200)
+  if (history.size() > MAX_SQUARES)
   {
     history.remove(0);
   }
@@ -132,7 +134,7 @@ void draw()
     line(i, 50 + heightMix*50, i+1, 50 + heightMix*50);
 
     bufferVal.add(heightMix);
-    if (bufferVal.size()>200) {
+    if (bufferVal.size()>MAX_SQUARES) {
       bufferVal.remove(0);
     }
 
@@ -203,7 +205,7 @@ void draw()
       }
     }
     
-    stroke(lerpColor(from, to, (float)j/200));
+    stroke(lerpColor(from, to, (float)j/MAX_SQUARES));
     if (bufferOffset > 0.7) {
       updateColors();
     }
@@ -217,7 +219,7 @@ void draw()
     //rotateZ(radians(position.x));
     //rotateY(radians(position.x));
     //rotateX(radians(position.x));
-    //fill(lerpColor(from,to,(float)i/200));
+    //fill(lerpColor(from,to,(float)i/MAX_SQUARES));
     
     strokeWeight(1);
     rect(0, 0, position.x*0.8+bufferOffset*50, position.y*noise((lineX)/50)+bufferOffset*50);
