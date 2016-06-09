@@ -1,9 +1,9 @@
 # Pandora's Box
 A dynamic music visualizer built in Processing that utilizes the Minim audio library.
 
--------------------------
+-
 Requirements
--------------------------
+-
 This program requires Processing version 3.0 or higher as well as the Minim audio library
 
 -Processing can be downloaded here: https://processing.org/download/
